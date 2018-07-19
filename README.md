@@ -1,2 +1,2 @@
 # OSM_proxy
-This Addon will deviier a Openstreemap Proxy for REDAXO
+This Addon will deliver a OpenStreetMap Proxy for REDAXO
