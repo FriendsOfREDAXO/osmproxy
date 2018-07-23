@@ -29,7 +29,14 @@ if (rex_get('osmtype', 'string')) {
 			$server[] = 'b.basemaps.cartocdn.com/rastertiles/voyager/';
 			$server[] = 'b.basemaps.cartocdn.com/rastertiles/voyager/';
 		}
-				
+		
+		if ($type == 'carto_positron')
+		{
+			$server[] = 'b.basemaps.cartocdn.com/rastertiles/positron/';
+			$server[] = 'b.basemaps.cartocdn.com/rastertiles/positron/';
+			$server[] = 'b.basemaps.cartocdn.com/rastertiles/positron/';
+		}
+					
 		
 		if ($type == 'german')
 		{
