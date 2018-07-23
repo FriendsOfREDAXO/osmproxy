@@ -22,6 +22,15 @@ if (rex_get('osmtype', 'string')) {
 	if (!is_file($file) || filemtime($file)<time()-(86400*30))
 	{
 		$server = array();
+		
+		if ($type == 'carto')
+		{
+			$server[] = 'b.basemaps.cartocdn.com/rastertiles/voyager/';
+			$server[] = 'b.basemaps.cartocdn.com/rastertiles/voyager/';
+			$server[] = 'b.basemaps.cartocdn.com/rastertiles/voyager/';
+		}
+				
+		
 		if ($type == 'german')
 		{
 			$server[] = 'a.tile.openstreetmap.de/tiles/osmde/';
