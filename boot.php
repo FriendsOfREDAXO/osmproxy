@@ -74,6 +74,7 @@ if (rex_get('osmtype', 'string')) {
 	header("Cache-Control: public, max-age=" . $ttl * 60);
 	header('Content-Type: image/png');
 	readfile($file);
+	exit();
 }
 
 ?>
