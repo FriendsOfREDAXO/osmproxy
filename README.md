@@ -12,6 +12,7 @@ Types:
 - default
 - german 
 - carto
+- carto_light
 
 Usage:
 
