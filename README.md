@@ -21,6 +21,12 @@ RewriteRule for Apache .htaccess
  
 `RewriteRule ^osmtype/([^/]*)/([^/]*)/([^/]*)/([^/]*)\.png$ /?osmtype=$1&z=$2&x=$3&y=$4 [L]` 
 
+How to use it in leaflet?
+
+Example with RewriteRule
+
+`var tiles = L.tileLayer('/osmtype/german/{z}/{x}/{y}', {`
+
 
 ### Credits
 
