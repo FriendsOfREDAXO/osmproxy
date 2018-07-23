@@ -10,8 +10,11 @@ Features:
 
 
 usage:
+
 `/?osmtype=default&z=16&x=33973&y=21807`
+
 or when using RewriteRule 
+
 `/osmtype/german/16/33973/21807.png`
 
 RewriteRule for Apache .htaccess
