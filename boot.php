@@ -25,16 +25,18 @@ if (rex_get('osmtype', 'string')) {
 		
 		if ($type == 'carto')
 		{
+			$server[] = 'a.basemaps.cartocdn.com/rastertiles/voyager/';
 			$server[] = 'b.basemaps.cartocdn.com/rastertiles/voyager/';
-			$server[] = 'b.basemaps.cartocdn.com/rastertiles/voyager/';
-			$server[] = 'b.basemaps.cartocdn.com/rastertiles/voyager/';
+			$server[] = 'c.basemaps.cartocdn.com/rastertiles/voyager/';
+			$server[] = 'd.basemaps.cartocdn.com/rastertiles/voyager/';
 		}
 		
 		if ($type == 'carto_positron')
 		{
+			$server[] = 'a.basemaps.cartocdn.com/rastertiles/positron/';
 			$server[] = 'b.basemaps.cartocdn.com/rastertiles/positron/';
-			$server[] = 'b.basemaps.cartocdn.com/rastertiles/positron/';
-			$server[] = 'b.basemaps.cartocdn.com/rastertiles/positron/';
+			$server[] = 'c.basemaps.cartocdn.com/rastertiles/positron/';
+			$server[] = 'd.basemaps.cartocdn.com/rastertiles/positron/';
 		}
 					
 		
