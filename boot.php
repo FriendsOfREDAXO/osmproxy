@@ -13,12 +13,15 @@ if (rex_get('osmtype', 'string')) {
 			unlink($file);
 		}
 	}
+	// Clear REDAXO OutputBuffers
 	rex_response::cleanOutputBuffers();
-	$ttl = 86400; //cache timeout in seconds
-	$x = intval($_GET['x']);
-	$y = intval($_GET['y']);
-	$z = intval($_GET['z']);
+	$ttl = 86400; 
+	$x = rex_get('x', 'int');
+	$y = rex_get('y', 'int');
+	$z = rex_get('z', 'int');
+	
 	$file = $this->getDataPath()."/${z}_${x}_$y.png";
+	
 	if (!is_file($file) || filemtime($file)<time()-(86400*30))
 	{
 		$server = array();
@@ -61,7 +64,7 @@ if (rex_get('osmtype', 'string')) {
 		curl_setopt($ch, CURLOPT_HEADER, 0);
 		curl_exec($ch);
 		curl_close($ch);
-		fflush($fp);    // need to insert this line for proper output when tile is first requested
+		fflush($fp);
 		fclose($fp);
 	}
 	$exp_gmt = gmdate("D, d M Y H:i:s", time() + $ttl * 60) ." GMT";
