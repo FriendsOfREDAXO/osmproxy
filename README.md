@@ -8,8 +8,12 @@ Features:
 - stored files will be deleted afer 1 day
 - does not accept direct calls of tiles from external sites
 
+Types: 
+- default
+- german 
+- carto
 
-usage:
+Usage:
 
 `/?osmtype=default&z=16&x=33973&y=21807`
 
