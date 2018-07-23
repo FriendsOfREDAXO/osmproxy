@@ -25,7 +25,7 @@ How to use it in leaflet?
 
 Example with RewriteRule
 
-`var tiles = L.tileLayer('/osmtype/german/{z}/{x}/{y}', {`
+`var tiles = L.tileLayer('/osmtype/german/{z}/{x}/{y}.png', {`
 
 
 ### Credits
