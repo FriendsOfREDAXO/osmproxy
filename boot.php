@@ -5,7 +5,7 @@ if (rex_get('osmtype', 'string')) {
 	{
 		die();
 	}
-
+        $type = $dir = $file = $server = $url = $x = $y = $z = $ch = $fp = $exp_gmt = $mod_gmt = '';
 	$type = rex_escape(rex_get('osmtype', 'string'));
 	$dir = $this->getDataPath();
 	foreach (glob($dir."*") as $file) {
