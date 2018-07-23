@@ -1,5 +1,5 @@
 package: osmproxy
-version: '0.0.4'
+version: '0.0.5'
 author: Friends Of REDAXO
 supportpage: https://github.com/FriendsOfREDAXO/pdfout
 requires:
