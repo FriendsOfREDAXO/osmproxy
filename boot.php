@@ -25,23 +25,7 @@ if (rex_get('osmtype', 'string')) {
 	if (!is_file($file) || filemtime($file)<time()-(86400*30))
 	{
 		$server = array();
-		
-		if ($type == 'carto')
-		{
-			$server[] = 'a.basemaps.cartocdn.com/rastertiles/voyager/';
-			$server[] = 'b.basemaps.cartocdn.com/rastertiles/voyager/';
-			$server[] = 'c.basemaps.cartocdn.com/rastertiles/voyager/';
-			$server[] = 'd.basemaps.cartocdn.com/rastertiles/voyager/';
-		}
-		
-		if ($type == 'carto_light')
-		{
-			$server[] = 'a.basemaps.cartocdn.com/rastertiles/light_all/';
-			$server[] = 'b.basemaps.cartocdn.com/rastertiles/light_all/';
-			$server[] = 'c.basemaps.cartocdn.com/rastertiles/light_all/';
-			$server[] = 'd.basemaps.cartocdn.com/rastertiles/light_all/';
-		}
-					
+			
 		
 		if ($type == 'german')
 		{
