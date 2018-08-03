@@ -3,16 +3,14 @@ This Addon delivers a OpenStreetMap Tile Proxy for REDAXO
 
 Features: 
 
-- delivers german tiles from openstreetmap.de
-- or default tiles from openstreetmap.org
+- delivers german tiles from openstreetmap.de (type=german) 
+- or default tiles from openstreetmap.org (type=default)
 - stored files will be deleted afer 1 day
 - does not accept direct calls of tiles from external sites
 
 Types: 
 - default
 - german 
-- carto
-- carto_light
 
 Usage:
 
