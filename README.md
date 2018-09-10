@@ -1,5 +1,5 @@
 # OSM proxy
-This Addon delivers a OpenStreetMap Tile Proxy for REDAXO
+This Addon delivers an OpenStreetMap Tile Proxy for REDAXO
 
 Features: 
 
