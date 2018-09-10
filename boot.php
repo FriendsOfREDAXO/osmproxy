@@ -28,9 +28,9 @@ if (rex_get('osmtype', 'string')) {
 		
 		if ($type == 'carto')
 		{
-			$server[] = 'cartodb-basemaps-a.global.ssl.fastly.net/rastertiles/voyager_light_all/';
-			$server[] = 'cartodb-basemaps-b.global.ssl.fastly.net/rastertiles/voyager_light_all/';
-			$server[] = 'cartodb-basemaps-c.global.ssl.fastly.net/rastertiles/voyager_light_all/';
+			$server[] = 'a.basemaps.cartocdn.com/rastertiles/voyager/';
+			$server[] = 'b.basemaps.cartocdn.com/rastertiles/voyager/';
+			$server[] = 'c.basemaps.cartocdn.com/rastertiles/voyager/';
 
 		}
 		
@@ -83,4 +83,3 @@ if (rex_get('osmtype', 'string')) {
 }
 
 ?>
-
