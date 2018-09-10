@@ -9,8 +9,11 @@ Features:
 - does not accept direct calls of tiles from external sites
 
 Types: 
-- default
-- german 
+- standard
+- german
+- wikipedia
+- carto
+- carto_light
 
 Usage:
 
