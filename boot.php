@@ -25,7 +25,28 @@ if (rex_get('osmtype', 'string')) {
 	if (!is_file($file) || filemtime($file)<time()-(86400*30))
 	{
 		$server = array();
-			
+		
+		if ($type == 'carto')
+		{
+			$server[] = 'cartodb-basemaps-a.global.ssl.fastly.net/rastertiles/voyager_light_all/';
+			$server[] = 'cartodb-basemaps-b.global.ssl.fastly.net/rastertiles/voyager_light_all/';
+			$server[] = 'cartodb-basemaps-c.global.ssl.fastly.net/rastertiles/voyager_light_all/';
+
+		}
+		
+		if ($type == 'wikipedia')
+		{
+			$server[] = 'maps.wikimedia.org/osm-intl/';
+		}
+				
+		if ($type == 'carto_light')
+		{
+			$server[] = 'a.basemaps.cartocdn.com/rastertiles/light_all/';
+			$server[] = 'b.basemaps.cartocdn.com/rastertiles/light_all/';
+			$server[] = 'c.basemaps.cartocdn.com/rastertiles/light_all/';
+			$server[] = 'd.basemaps.cartocdn.com/rastertiles/light_all/';
+		}
+					
 		
 		if ($type == 'german')
 		{
@@ -34,7 +55,7 @@ if (rex_get('osmtype', 'string')) {
 			$server[] = 'c.tile.openstreetmap.de/tiles/osmde/';
 		}
 
-		else
+		if ($type == 'standard')
 		{
 			$server[] = 'a.tile.openstreetmap.org/';
 			$server[] = 'b.tile.openstreetmap.org/';
@@ -62,3 +83,4 @@ if (rex_get('osmtype', 'string')) {
 }
 
 ?>
+
