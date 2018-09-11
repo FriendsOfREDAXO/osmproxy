@@ -1,6 +1,5 @@
 <?php
 if (rex_get('osmtype', 'string')) {
-
 	if (parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST) != $_SERVER['SERVER_NAME'] && !rex_backend_login::hasSession())
 	{
 		die();
@@ -22,44 +21,33 @@ if (rex_get('osmtype', 'string')) {
 	
 	$file = $this->getDataPath()."/${z}_${x}_$y.png";
 	
-	if (!is_file($file) || filemtime($file)<time()-(86400*30))
+	if (!is_file($file) || filemtime($file)<time()-(86400*30) and $type!='')
 	{
 		$server = array();
-		
-		if ($type == 'carto')
-		{
-			$server[] = 'a.basemaps.cartocdn.com/rastertiles/voyager/';
-			$server[] = 'b.basemaps.cartocdn.com/rastertiles/voyager/';
-			$server[] = 'c.basemaps.cartocdn.com/rastertiles/voyager/';
-
-		}
-		
-		if ($type == 'wikipedia')
-		{
-			$server[] = 'maps.wikimedia.org/osm-intl/';
-		}
-				
-		if ($type == 'carto_light')
-		{
-			$server[] = 'a.basemaps.cartocdn.com/rastertiles/light_all/';
-			$server[] = 'b.basemaps.cartocdn.com/rastertiles/light_all/';
-			$server[] = 'c.basemaps.cartocdn.com/rastertiles/light_all/';
-			$server[] = 'd.basemaps.cartocdn.com/rastertiles/light_all/';
-		}
-					
-		
-		if ($type == 'german')
-		{
-			$server[] = 'a.tile.openstreetmap.de/tiles/osmde/';
-			$server[] = 'b.tile.openstreetmap.de/tiles/osmde/';
-			$server[] = 'c.tile.openstreetmap.de/tiles/osmde/';
-		}
-
-		if ($type == 'default')
-		{
-			$server[] = 'a.tile.openstreetmap.org/';
-			$server[] = 'b.tile.openstreetmap.org/';
-			$server[] = 'c.tile.openstreetmap.org/';
+		switch ($type) {
+			case "carto":
+				$server[] = 'a.basemaps.cartocdn.com/rastertiles/voyager/';
+			        $server[] = 'b.basemaps.cartocdn.com/rastertiles/voyager/';
+			        $server[] = 'c.basemaps.cartocdn.com/rastertiles/voyager/';
+				break;
+			case "wikipedia":
+				$server[] = 'maps.wikimedia.org/osm-intl/';
+				break;
+			case "carto_light":
+				$server[] = 'a.basemaps.cartocdn.com/rastertiles/light_all/';
+			        $server[] = 'b.basemaps.cartocdn.com/rastertiles/light_all/';
+			        $server[] = 'c.basemaps.cartocdn.com/rastertiles/light_all/';
+			        $server[] = 'd.basemaps.cartocdn.com/rastertiles/light_all/';
+				break;
+			case "german":
+				$server[] = 'a.tile.openstreetmap.de/tiles/osmde/';
+			        $server[] = 'b.tile.openstreetmap.de/tiles/osmde/';
+			        $server[] = 'c.tile.openstreetmap.de/tiles/osmde/';
+				break:		
+			default:
+			        $server[] = 'a.tile.openstreetmap.org/';
+			        $server[] = 'b.tile.openstreetmap.org/';
+			        $server[] = 'c.tile.openstreetmap.org/';
 		}
 		$url = 'https://'.$server[array_rand($server)];
 		$url .= $z."/".$x."/".$y.".png";
@@ -81,5 +69,4 @@ if (rex_get('osmtype', 'string')) {
 	readfile($file);
 	exit();
 }
-
 ?>
