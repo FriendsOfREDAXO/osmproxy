@@ -17,7 +17,7 @@ Types:
 - carto
 - carto_light
 
-> Please make sure to show the proper copyright attribution on the map, if needed. 
+Please make sure to show the proper copyright attribution on the map, if needed. 
 e.g.: '<a href="https://carto.com/attribution">CARTO</a>' for CARTO maps and '<a href="https://wikimediafoundation.org/wiki/Maps_Terms_of_Use">Wikimedia maps</a>' for wikimedia.
 
 Usage:
