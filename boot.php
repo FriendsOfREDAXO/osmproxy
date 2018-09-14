@@ -43,7 +43,7 @@ if (rex_get('osmtype', 'string')) {
 				$server[] = 'a.tile.openstreetmap.de/tiles/osmde/';
 			        $server[] = 'b.tile.openstreetmap.de/tiles/osmde/';
 			        $server[] = 'c.tile.openstreetmap.de/tiles/osmde/';
-				break:		
+				break;	
 			default:
 			        $server[] = 'a.tile.openstreetmap.org/';
 			        $server[] = 'b.tile.openstreetmap.org/';
