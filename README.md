@@ -5,7 +5,7 @@ Features:
 
 - delivers carto tiles
 - delivers wikipedia tiles (from beta server) 
-- delivers german tiles from openstreetmap.de (type=german) 
+- delivers german tiles from openstreetmap.de (type=default) 
 - or default tiles from openstreetmap.org (type=default)
 - stored files will be deleted afer 1 day
 - does not accept direct calls of tiles from external sites
