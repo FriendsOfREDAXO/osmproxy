@@ -1,13 +1,17 @@
 # OSM proxy
 This Addon delivers an OpenStreetMap Tile Proxy for REDAXO
 
+The tile-cache will be stored inside the osmproxy data folder `/redaxo/data/osmproxy/`.
+
+To *clear the cache* uninstall then install the AddOn. 
+
 Features: 
 
 - delivers carto tiles
-- delivers wikipedia tiles (from beta server) 
+- delivers wikimedia tiles 
 - delivers german tiles from openstreetmap.de (type=default) 
 - or default tiles from openstreetmap.org (type=default)
-- stored files will be deleted afer 1 day
+- stored files will be deleted afer 24 hours
 - does not accept direct calls of tiles from external sites
 
 Types: 
