@@ -1,2 +1,2 @@
 <?php 
-rex_dir:.create($this->getDataPath();
+rex_dir::create($this->getDataPath();
