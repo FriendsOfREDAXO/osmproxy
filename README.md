@@ -5,8 +5,7 @@ The tile-cache will be stored inside the osmproxy data folder `/redaxo/data/addo
 
 To *clear the cache* uninstall then install the AddOn. 
 
-Features: 
-
+## Features: 
 - delivers carto tiles
 - delivers wikimedia tiles 
 - delivers german tiles from openstreetmap.de (type=default) 
@@ -14,7 +13,7 @@ Features:
 - stored files will be deleted afer 24 hours
 - does not accept direct calls of tiles from external sites
 
-Types: 
+## Types: 
 - default (openstreetmap.org)
 - german  (openstreetmap.de)
 - wikipedia
@@ -43,7 +42,7 @@ Example with RewriteRule
 `var tiles = L.tileLayer('/osmtype/german/{z}/{x}/{y}.png', {`
 
 
-### Credits
+## Credits
 
 - [FriendsOfREDAXO](https://github.com/FriendsOfREDAXO)
 
