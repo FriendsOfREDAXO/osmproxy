@@ -55,6 +55,7 @@ if (rex_get('osmtype', 'string')) {
 		$fp = fopen($file, "w");
 		curl_setopt($ch, CURLOPT_FILE, $fp);
 		curl_setopt($ch, CURLOPT_HEADER, 0);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 		curl_exec($ch);
 		curl_close($ch);
 		fflush($fp);
