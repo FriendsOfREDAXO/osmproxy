@@ -40,9 +40,9 @@ if (rex_get('osmtype', 'string')) {
 			        $server[] = 'd.basemaps.cartocdn.com/rastertiles/light_all/';
 				break;
 			case "german":
-				$server[] = 'a.tile.openstreetmap.de/tiles/osmde/';
-			        $server[] = 'b.tile.openstreetmap.de/tiles/osmde/';
-			        $server[] = 'c.tile.openstreetmap.de/tiles/osmde/';
+				$server[] = 'a.tile.openstreetmap.de/';
+			        $server[] = 'b.tile.openstreetmap.de/';
+			        $server[] = 'c.tile.openstreetmap.de/';			
 				break;	
 			default:
 			        $server[] = 'a.tile.openstreetmap.org/';
