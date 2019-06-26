@@ -19,7 +19,7 @@ if (rex_get('osmtype', 'string')) {
 	$y = rex_get('y', 'int');
 	$z = rex_get('z', 'int');
 	
-	$file = $this->getDataPath()."/${z}_${x}_$y.png";
+	$file = $dir."/${z}_${x}_$y.png";
 	
 	if (!is_file($file) || filemtime($file)<time()-(86400*30) and $type!='')
 	{
