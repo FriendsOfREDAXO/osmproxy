@@ -1,6 +1,6 @@
 <?php
 if (rex_get('osmtype', 'string')) {
-	if (!empty($_SERVER['HTTP_REFERER'] && parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST) != $_SERVER['SERVER_NAME'] && !rex_backend_login::hasSession())
+	if (!empty($_SERVER['HTTP_REFERER'] && parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST) != $_SERVER['SERVER_NAME'])
 	{
 		die();
 	}
