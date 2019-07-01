@@ -9,7 +9,9 @@ if (rex_get('osmtype', 'string')) {
 	$dir = $this->getDataPath();
 	foreach (glob($dir."*") as $file) {
 		if(time() - filectime($file) > 86400){
+			if (is_file($file) { 
 			unlink($file);
+			}	
 		}
 	}
 	// Clear REDAXO OutputBuffers
