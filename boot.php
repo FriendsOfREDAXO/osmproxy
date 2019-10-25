@@ -9,7 +9,6 @@ if (rex_get('osmtype', 'string')) {
 	$dir = $this->getDataPath();
 	foreach (glob($dir."*") as $file) {
 		if(file_exists($file) && time() - filectime($file) > 86400){
-			chmod($file, 755);
 			unlink($file);
 			unset($file);    
 		}
@@ -62,6 +61,7 @@ if (rex_get('osmtype', 'string')) {
 		curl_close($ch);
 		fflush($fp);
 		fclose($fp);
+                chmod($file, 0755);
 	}
 	$exp_gmt = gmdate("D, d M Y H:i:s", time() + $ttl * 60) ." GMT";
 	$mod_gmt = gmdate("D, d M Y H:i:s", filemtime($file)) ." GMT";
@@ -70,6 +70,8 @@ if (rex_get('osmtype', 'string')) {
 	header("Cache-Control: public, max-age=" . $ttl * 60);
 	header('Content-Type: image/png');
 	readfile($file);
+
 	exit();
 }
 ?>
+
