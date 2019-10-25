@@ -9,6 +9,7 @@ if (rex_get('osmtype', 'string')) {
 	$dir = $this->getDataPath();
 	foreach (glob($dir."*") as $file) {
 		if(file_exists($file) && time() - filectime($file) > 86400){
+			chmod($file, 755);
 			unlink($file);
 			unset($file);    
 		}
