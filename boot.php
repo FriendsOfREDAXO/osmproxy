@@ -8,7 +8,7 @@ if (rex_get('osmtype', 'string')) {
 	$type = rex_escape(rex_get('osmtype', 'string'));
 	$dir = $this->getDataPath();
 	foreach (glob($dir."*") as $file) {
-		if(file_exists($file) && time() - filectime($file) > 86400){
+		if(file_exists($file) && time() - filemtime($file) > 86400){
 			unlink($file);
 			unset($file);    
 		}
