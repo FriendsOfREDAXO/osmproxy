@@ -10,7 +10,7 @@ if (rex_get('osmtype', 'string')) {
 	clearstatcache();
 	foreach (glob($dir."*") as $file) {
 		if(file_exists($file) && time() - filemtime($file) > 86400){
-			unlink($file);
+			@unlink($file);
 			unset($file);    
 		}
 	}
