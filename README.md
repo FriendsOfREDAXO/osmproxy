@@ -35,6 +35,10 @@ RewriteRule for Apache .htaccess
  
 `RewriteRule ^osmtype/([^/]*)/([^/]*)/([^/]*)/([^/]*)\.png$ /?osmtype=$1&z=$2&x=$3&y=$4 [L]` 
 
+nginx
+
+`rewrite ^/osmtype/([^/]*)/([^/]*)/([^/]*)/([^/]*)\.png$ /?osmtype=$1&z=$2&x=$3&y=$4 last;`
+
 How to use it in leaflet?
 
 Example with RewriteRule
