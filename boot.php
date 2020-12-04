@@ -3,7 +3,7 @@
 function deleteOSMCacheFiles($dir, $patterns = "*", int $timeout = 86400)
 {
 
-    foreach (glob($dir . "/*" . "{{$patterns}}", GLOB_BRACE) as $f) {
+    foreach (glob($dir . "*" . "{{$patterns}}", GLOB_BRACE) as $f) {
 
         if (is_writable($f) && filemtime($f) < (time() - $timeout))
             unlink($f);
