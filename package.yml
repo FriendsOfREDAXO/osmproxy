@@ -1,8 +1,8 @@
 package: osmproxy
-version: '1.3.8'
+version: '1.3.9-dev'
 author: Friends Of REDAXO
 supportpage: https://github.com/FriendsOfREDAXO/osmproxy
 requires:
     redaxo: '^5.8.0'
     php:
-        version: '^7.1'
+        version: '>=7, <9' 
