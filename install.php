@@ -1,2 +1,3 @@
 <?php 
-rex_dir::create($this->getCachePath());
+$addon = rex_addon::get('osmproxy');
+rex_dir::create($addon->getCachePath());
