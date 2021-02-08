@@ -1,7 +1,7 @@
 # OSM proxy
 This Addon delivers an OpenStreetMap Tile Proxy for REDAXO
 
-The tile-cache will be stored inside the osmproxy cache folder `/redaxo/data/addons/osmproxy/`.
+The tile-cache will be stored inside the osmproxy cache folder `/redaxo/cache/addons/osmproxy/`.
 
 
 ## Features: 
