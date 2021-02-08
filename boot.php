@@ -16,7 +16,7 @@ if (rex_get('osmtype', 'string')) {
     }
     $type = $dir = $file = $server = $url = $x = $y = $z = $ch = $fp = $exp_gmt = $mod_gmt = '';
     $type = rex_escape(rex_get('osmtype', 'string'));
-    $dir = $this->getDataPath();
+    $dir = $this->getCachePath();
     clearstatcache();
     deleteOSMCacheFiles($dir);
     // Clear REDAXO OutputBuffers
