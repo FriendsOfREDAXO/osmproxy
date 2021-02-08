@@ -1,2 +1,2 @@
 <?php
-rex_dir::delete($this->getDataPath());
+rex_dir::delete($this->getCachePath();
