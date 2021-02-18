@@ -2,9 +2,8 @@
 
 function deleteOSMCacheFiles($dir, $patterns = "*", int $timeout = 86400)
 {
-
+    clearstatcache();
     foreach (glob($dir . "/*" . "{{$patterns}}", GLOB_BRACE) as $f) {
-        clearstatcache();
         if (file_exists($f) && is_writable($f) && filemtime($f) < (time() - $timeout))
             unlink($f);
     }
