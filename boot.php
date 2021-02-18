@@ -18,10 +18,10 @@ if (rex_get('osmtype', 'string')) {
     $type = rex_escape(rex_get('osmtype', 'string'));
     $dir = $this->getCachePath();
     clearstatcache();
-    deleteOSMCacheFiles($dir);
+    $ttl = 86400;
+    deleteOSMCacheFiles($dir,'*',$ttl);
     // Clear REDAXO OutputBuffers
     rex_response::cleanOutputBuffers();
-    $ttl = 86400;
     $x = rex_get('x', 'int');
     $y = rex_get('y', 'int');
     $z = rex_get('z', 'int');
