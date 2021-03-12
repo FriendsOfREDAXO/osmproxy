@@ -8,7 +8,6 @@ function deleteOSMCacheFiles($dir, $patterns = "*", int $timeout = 86400)
             @unlink($f);
     }
 }
-
 if (rex_get('osmtype', 'string')) {
     if (!empty($_SERVER['HTTP_REFERER']) && parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST) != $_SERVER['HTTP_HOST']) {
         die();
@@ -26,7 +25,7 @@ if (rex_get('osmtype', 'string')) {
     $z = rex_get('z', 'int');
     $file = $dir . "/${z}_${x}_$y.png";
 
-    if (!is_file($file) || filemtime($file) < time() - (86400 * 30) and $type != '') {
+    if (!is_file($file) || filemtime($file) < time() - ($ttl * 30) and $type != '') {
         $server = array();
         switch ($type) {
             case "carto":
@@ -76,5 +75,3 @@ if (rex_get('osmtype', 'string')) {
 
     exit();
 }
-
-
