@@ -23,7 +23,7 @@ if (rex_get('osmtype', 'string')) {
     $x = rex_get('x', 'int');
     $y = rex_get('y', 'int');
     $z = rex_get('z', 'int');
-    $file = $dir . "/${z}_${x}_$y.png";
+    $file = $dir . "${z}_${x}_$y.png";
 
     if (!is_file($file) || filemtime($file) < time() - ($ttl * 30) and $type != '') {
         $server = array();
