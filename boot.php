@@ -30,15 +30,20 @@ if (rex_get('osmtype', 'string')) {
                 $server[] = 'b.basemaps.cartocdn.com/rastertiles/voyager/';
                 $server[] = 'c.basemaps.cartocdn.com/rastertiles/voyager/';
                 break;
-            case "wikipedia":
-                $server[] = 'maps.wikimedia.org/osm-intl/';
-                break;
             case "carto_light":
                 $server[] = 'a.basemaps.cartocdn.com/rastertiles/light_all/';
                 $server[] = 'b.basemaps.cartocdn.com/rastertiles/light_all/';
                 $server[] = 'c.basemaps.cartocdn.com/rastertiles/light_all/';
                 $server[] = 'd.basemaps.cartocdn.com/rastertiles/light_all/';
                 break;
+            case "wikipedia":
+                $server[] = 'maps.wikimedia.org/osm-intl/';
+                break;
+                //OpenStreetMap.humanitaire
+            case "hot":
+                $server[] = 'a.tile.openstreetmap.fr/hot/${z}/${x}/${y}.png';
+                $server[] = 'b.tile.openstreetmap.fr/hot/${z}/${x}/${y}.png';
+                break;     
             case "german":
                 $server[] = 'a.tile.openstreetmap.de/';
                 $server[] = 'b.tile.openstreetmap.de/';
