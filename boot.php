@@ -1,30 +1,27 @@
 <?php
-
 function deleteOSMCacheFiles($dir, $patterns = "*", int $timeout = 86400)
 {
-    clearstatcache();
     foreach (glob($dir . "*" . "{{$patterns}}", GLOB_BRACE) as $f) {
         if (file_exists($f) && is_writable($f) && @filemtime($f) < (time() - $timeout))
             @unlink($f);
     }
 }
 if (rex_get('osmtype', 'string')) {
+    // Clear REDAXO OutputBuffers
+    rex_response::cleanOutputBuffers();
+    clearstatcache();
     if (!empty($_SERVER['HTTP_REFERER']) && parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST) != $_SERVER['HTTP_HOST']) {
         die();
     }
     $type = $dir = $file = $server = $url = $x = $y = $z = $ch = $fp = $exp_gmt = $mod_gmt = '';
     $type = rex_escape(rex_get('osmtype', 'string'));
     $dir = $this->getCachePath();
-    clearstatcache();
     $ttl = 86400;
     deleteOSMCacheFiles($dir,'*',$ttl);
-    // Clear REDAXO OutputBuffers
-    rex_response::cleanOutputBuffers();
     $x = rex_get('x', 'int');
     $y = rex_get('y', 'int');
     $z = rex_get('z', 'int');
     $file = $dir . "${z}_${x}_$y.png";
-
     if (!is_file($file) || filemtime($file) < time() - ($ttl * 30) and $type != '') {
         $server = array();
         switch ($type) {
@@ -72,6 +69,5 @@ if (rex_get('osmtype', 'string')) {
     header("Cache-Control: public, max-age=" . $ttl * 60);
     header('Content-Type: image/png');
     readfile($file);
-
-    exit();
+    die();
 }
