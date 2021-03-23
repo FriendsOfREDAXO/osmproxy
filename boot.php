@@ -41,8 +41,8 @@ if (rex_get('osmtype', 'string')) {
                 break;
                 //OpenStreetMap.humanitaire
             case "hot":
-                $server[] = 'a.tile.openstreetmap.fr/hot/${z}/${x}/${y}.png';
                 $server[] = 'b.tile.openstreetmap.fr/hot/${z}/${x}/${y}.png';
+                $server[] = 'c.tile.openstreetmap.fr/hot/${z}/${x}/${y}.png';
                 break;     
             case "german":
                 $server[] = 'a.tile.openstreetmap.de/';
