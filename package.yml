@@ -5,4 +5,4 @@ supportpage: https://github.com/FriendsOfREDAXO/osmproxy
 requires:
     redaxo: '^5.8.0'
     php:
-        version: '>=7, <9' 
+        version: '>=7.2, <9' 
