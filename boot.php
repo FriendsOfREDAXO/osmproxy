@@ -6,7 +6,9 @@ function deleteOSMCacheFiles($dir, $patterns = "*", int $timeout = 86400)
             @unlink($f);
     }
 }
-rex_dir::create($this->getCachePath());
+$addon = rex_addon::get('osmproxy');
+rex_dir::create($addon->getCachePath());
+
 if (rex_get('osmtype', 'string')) {
     // Clear REDAXO OutputBuffers
     rex_response::cleanOutputBuffers();
@@ -16,7 +18,7 @@ if (rex_get('osmtype', 'string')) {
     }
     $type = $dir = $file = $server = $url = $x = $y = $z = $ch = $fp = $exp_gmt = $mod_gmt = '';
     $type = rex_escape(rex_get('osmtype', 'string'));
-    $dir = $this->getCachePath();
+    $dir = $addon->getCachePath();
     $ttl = 86400;
     deleteOSMCacheFiles($dir,'*',$ttl);
     $x = rex_get('x', 'int');
