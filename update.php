@@ -1,7 +1,7 @@
 <?php
 $addon = rex_addon::get('osmproxy');
 
-if (rex_string::versionCompare($addon->getVersion(), '1.5.0', '<')) {
+if (rex_string::versionCompare($addon->getVersion(), '1.4.1', '<')) {
     rex_dir::delete($addon->getDataPath());
     rex_dir::create($addon->getCachePath());
 }
