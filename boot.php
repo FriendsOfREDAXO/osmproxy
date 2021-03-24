@@ -40,7 +40,6 @@ if (rex_get('osmtype', 'string')) {
             case "wikipedia":
                 $server[] = 'maps.wikimedia.org/osm-intl/';
                 break;
-                //OpenStreetMap.humanitaire    
             case "german":
                 $server[] = 'a.tile.openstreetmap.de/';
                 $server[] = 'b.tile.openstreetmap.de/';
