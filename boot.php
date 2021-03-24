@@ -6,6 +6,7 @@ function deleteOSMCacheFiles($dir, $patterns = "*", int $timeout = 86400)
             @unlink($f);
     }
 }
+rex_dir::create($this->getCachePath());
 if (rex_get('osmtype', 'string')) {
     // Clear REDAXO OutputBuffers
     rex_response::cleanOutputBuffers();
