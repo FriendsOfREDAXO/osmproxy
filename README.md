@@ -1,5 +1,5 @@
 # OSM proxy
-This Addon delivers an OpenStreetMap Tile Proxy for REDAXO
+This Addon delivers an OpenStreetMap tile proxy for REDAXO cms
 
 Ensures the GDPR compliant use of OpenStreetmap tiles
 
