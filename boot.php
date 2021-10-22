@@ -39,9 +39,6 @@ if (rex_get('osmtype', 'string')) {
                 $server[] = 'c.basemaps.cartocdn.com/rastertiles/light_all/';
                 $server[] = 'd.basemaps.cartocdn.com/rastertiles/light_all/';
                 break;
-            case "wikipedia":
-                $server[] = 'maps.wikimedia.org/osm-intl/';
-                break;
             case "german":
                 $server[] = 'a.tile.openstreetmap.de/';
                 $server[] = 'b.tile.openstreetmap.de/';
