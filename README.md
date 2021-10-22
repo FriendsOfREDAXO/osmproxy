@@ -8,7 +8,6 @@ The tile-cache will be stored inside the osmproxy cache folder `/redaxo/cache/ad
 
 ## Features: 
 - delivers carto tiles
-- delivers wikimedia tiles 
 - delivers german tiles from openstreetmap.de (type=default) 
 - or default tiles from openstreetmap.org (type=default)
 - stored files will be deleted afer 24 hours
