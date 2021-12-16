@@ -19,6 +19,7 @@ The tile-cache will be stored inside the osmproxy cache folder `/redaxo/cache/ad
 - wikipedia
 - carto
 - carto_light
+- carto_dark
 
 > Please make sure to show the proper copyright attribution on the map, if needed. 
 e.g.:
