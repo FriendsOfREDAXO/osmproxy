@@ -1,0 +1,16 @@
+title = OSM Proxy
+demo = Demo
+config = Konfiguration
+readme = README
+save = Speichern
+yes = Ja
+no = Nein
+default_provider = Standard-Provider
+default_provider_notice = Hier kann der Standard-Provider für die Demo-Ausgabe gewählt werden.
+allow_remote_referrer_check = Referrer-Prüfung aktivieren
+allow_remote_referrer_check_notice = Empfohlen, wenn der Proxy nur aus dem gleichen Backend-/Frontend-Kontext aufgerufen werden soll.
+show_vector_examples = Vektor-Beispiele anzeigen
+show_vector_examples_notice = Zeigt in der Demo zusätzlich die modernen Vektor-Quellen an.
+asset_hosts = Zusätzliche CDN-Hosts
+asset_hosts_notice = Eine Host-Zeile pro Eintrag oder durch Komma/Strichpunkt getrennt. Die Standard-Whitelist bleibt aktiv und wird um diese Hosts erweitert.
+config_saved = Die Konfiguration wurde gespeichert.
