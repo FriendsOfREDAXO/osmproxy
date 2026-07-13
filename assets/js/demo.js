@@ -1,6 +1,8 @@
 (function () {
     'use strict';
 
+    document.documentElement.dataset.osmproxyDemoScript = '1';
+
     function addStylesheet(href) {
         if (!href) {
             return;
@@ -100,6 +102,7 @@
         }
 
         container.dataset.osmproxyInitialized = '1';
+        container.dataset.osmproxyBooted = '1';
         setStatus(document.querySelector('[data-osmproxy-vector-status]'), 'initialisiert …');
 
         const styleUrl = container.dataset.mapStyle;
@@ -147,6 +150,8 @@
     if (typeof window.jQuery === 'function') {
         window.jQuery(document).on('rex:ready', boot);
     }
+
+    document.addEventListener('DOMContentLoaded', boot, {once: true});
 
     if (document.readyState !== 'loading') {
         boot();

@@ -7,7 +7,7 @@ use FriendsOfREDAXO\OsmProxy\Providers;
 $addon = rex_addon::get('osmproxy');
 $providers = Providers::grouped();
 
-rex_view::addJsFile($addon->getAssetsUrl('js/demo.js'));
+rex_view::addJsFile($addon->getAssetsUrl('js/demo.js') . '?v=' . filemtime($addon->getPath('assets/js/demo.js')));
 
 $maplibreJsUrl = rex_url::currentBackendPage([
     'osmproxy_asset' => 'https://unpkg.com/maplibre-gl/dist/maplibre-gl.js',

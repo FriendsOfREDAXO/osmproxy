@@ -5,8 +5,9 @@ OSM Proxy ist das klassische REDAXO-Addon für einen serverseitigen Tile- und As
 ## Status
 
 - Version: 3.0.0
+- Einordnung: Kompatibilitätsupdate für bestehende OSMProxy-Setups
 - Ziel: schlanker Proxy für klassische Kartenquellen und CDN-Assets
-- Empfehlung für neue Projekte: Geolocation und vector_maps
+- Empfehlung für neue Projekte: direkt mit Geolocation und vector_maps starten
 
 ## Was das AddOn aktuell bietet
 
@@ -58,7 +59,7 @@ Für neue Vorhaben sind heute meist diese AddOns die bessere Wahl:
 - **Geolocation** für Kartenverwaltung, Proxy, Geocoding und Leaflet-basierte Workflows
 - **vector_maps** für moderne Vektorkarten mit Web Component und aktuellen Stil-Varianten
 
-OSM Proxy bleibt damit vor allem als schlanke Kompatibilitäts- und Proxy-Lösung interessant.
+OSM Proxy bleibt damit vor allem als schlanke Kompatibilitäts- und Proxy-Lösung für bestehende Installationen interessant.
 
 ## Proxied Assets
 
@@ -149,7 +150,7 @@ Bei freien Kartenquellen ist die korrekte Attribution Pflicht. Bitte beachte imm
 
 ## Changelog
 
-Die Modernisierung hebt das AddOn auf eine neue 3.0.0-Linie mit:
+Version 3.0.0 ist als Kompatibilitätsupdate einzuordnen und bringt:
 
 - zentraler Provider-Verwaltung
 - freier Vektor-Unterstützung
