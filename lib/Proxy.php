@@ -32,11 +32,6 @@ final class Proxy
 
         rex_response::cleanOutputBuffers();
 
-        if (!$this->isSameHostReferrer()) {
-            header('HTTP/1.1 403 Forbidden');
-            exit;
-        }
-
         $provider = Providers::get($type);
         if (null === $provider) {
             header('HTTP/1.1 404 Not Found');
@@ -194,19 +189,5 @@ final class Proxy
         }
 
         return $hosts;
-    }
-
-    private function isSameHostReferrer(): bool
-    {
-        $host = rex_request::server('HTTP_HOST', 'string', '');
-        $referer = rex_request::server('HTTP_REFERER', 'string', '');
-
-        if ('' === $referer || '' === $host) {
-            return true;
-        }
-
-        $refererHost = parse_url($referer, PHP_URL_HOST);
-
-        return is_string($refererHost) && '' !== $refererHost && $refererHost === $host;
     }
 }

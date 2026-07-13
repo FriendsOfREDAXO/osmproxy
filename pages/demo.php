@@ -17,6 +17,17 @@ $maplibreCssUrl = rex_url::currentBackendPage([
     'osmproxy_asset' => 'https://unpkg.com/maplibre-gl/dist/maplibre-gl.css',
 ], false);
 
+$mapStyleUrl = rex_url::currentBackendPage([
+    'osmproxy_asset' => 'https://tiles.openfreemap.org/styles/liberty',
+], false);
+
+$rasterTileUrl = rtrim(rex::getServer(), '/') . '/' . ltrim((string) rex_url::frontendController([
+    'osmtype' => 'opentopomap',
+    'z' => 12,
+    'x' => 2208,
+    'y' => 1362,
+], false), './');
+
 $demoRaster = [
     'label' => 'OpenTopoMap',
     'type' => 'raster',
@@ -51,6 +62,44 @@ $demoVector = [
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
     }
 
+
+    .osmproxy-demo-debug {
+        margin-top: 1rem;
+        display: grid;
+        gap: 0.75rem;
+    }
+
+    .osmproxy-demo-debug__row {
+        display: grid;
+        gap: 0.25rem;
+        padding: 0.75rem 0.85rem;
+        border-radius: 10px;
+        background: rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .osmproxy-demo-debug__label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: rgba(31, 41, 55, 0.65);
+    }
+
+    .osmproxy-demo-debug__value {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+        font-size: 0.88rem;
+        color: #1f2937;
+        overflow-wrap: anywhere;
+    }
+
+    .osmproxy-demo-debug__status {
+        font-weight: 700;
+        color: #0f766e;
+    }
+
+    .osmproxy-demo-debug__status.is-error {
+        color: #b91c1c;
+    }
     .osmproxy-demo-box {
         min-height: 220px;
         border-radius: 12px;
@@ -73,11 +122,16 @@ $demoVector = [
     }
 
     .osmproxy-demo-box--raster {
-        background-image:
-            linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)),
-            url('https://a.tile.opentopomap.org/12/2208/1362.png');
         background-position: center center;
         background-size: cover;
+    }
+
+    .osmproxy-demo-raster-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     .osmproxy-demo-box--vector {
@@ -219,6 +273,7 @@ $demoVector = [
             <h3>Raster-Tiles</h3>
             <p>Beispiel für das bestehende OSMProxy-Verhalten.</p>
             <div class="osmproxy-demo-box osmproxy-demo-box--raster">
+                <img class="osmproxy-demo-raster-image" src="<?= rex_escape($rasterTileUrl) ?>" alt="<?= rex_escape($demoRaster['label']) ?>">
                 <div class="osmproxy-demo-preview">
                     <div class="osmproxy-demo-preview__legend">
                         <span class="osmproxy-demo-preview__title"><?= rex_escape($demoRaster['label']) ?></span>
@@ -230,6 +285,16 @@ $demoVector = [
                 </div>
             </div>
             <div class="osmproxy-demo-code">/?osmtype=opentopomap&amp;z=12&amp;x=2208&amp;y=1362</div>
+            <div class="osmproxy-demo-debug">
+                <div class="osmproxy-demo-debug__row">
+                    <div class="osmproxy-demo-debug__label">Geladene Proxy-URL</div>
+                    <div class="osmproxy-demo-debug__value" data-osmproxy-raster-url><?= rex_escape($rasterTileUrl) ?></div>
+                </div>
+                <div class="osmproxy-demo-debug__row">
+                    <div class="osmproxy-demo-debug__label">Ladezustand</div>
+                    <div class="osmproxy-demo-debug__value osmproxy-demo-debug__status" data-osmproxy-raster-status>wartet auf Bild</div>
+                </div>
+            </div>
         </div>
 
         <div class="osmproxy-demo-card">
@@ -239,7 +304,7 @@ $demoVector = [
                 <div
                     id="osmproxy-vector-map"
                     class="osmproxy-demo-map"
-                    data-map-style="https://tiles.openfreemap.org/styles/liberty"
+                    data-map-style="<?= rex_escape($mapStyleUrl) ?>"
                     data-map-lat="51.43"
                     data-map-lng="6.77"
                     data-map-zoom="13"
@@ -257,6 +322,16 @@ $demoVector = [
                 </div>
             </div>
             <div class="osmproxy-demo-code">https://tiles.openfreemap.org/styles/liberty</div>
+            <div class="osmproxy-demo-debug">
+                <div class="osmproxy-demo-debug__row">
+                    <div class="osmproxy-demo-debug__label">Geladene Style-URL</div>
+                    <div class="osmproxy-demo-debug__value" data-osmproxy-vector-style><?= rex_escape($mapStyleUrl) ?></div>
+                </div>
+                <div class="osmproxy-demo-debug__row">
+                    <div class="osmproxy-demo-debug__label">Ladezustand</div>
+                    <div class="osmproxy-demo-debug__value osmproxy-demo-debug__status" data-osmproxy-vector-status>wartet auf MapLibre</div>
+                </div>
+            </div>
         </div>
     </div>
 
