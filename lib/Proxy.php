@@ -18,6 +18,8 @@ final class Proxy
         'cdn.jsdelivr.net',
         'tiles.openfreemap.org',
     ];
+    // Füge einen aussagekräftigen User-Agent hinzu (z.B. mit Link zum Repo oder zur Website)
+    private const USER_AGENT = 'FriendsOfREDAXO/OsmProxy (+https://github.com/FriendsOfREDAXO/osmproxy)';
 
     public function handle(): void
     {
@@ -57,7 +59,9 @@ final class Proxy
 
         if (!is_file($cacheFile) || filemtime($cacheFile) < time() - $ttl) {
             $url = $this->buildRasterUrl((string) $provider['url'], $x, $y, $z);
-            $image = @file_get_contents($url);
+            
+            // Nutze die neue Hilfsmethode
+            $image = $this->fetchUrl($url);
 
             if (false === $image) {
                 header('HTTP/1.1 502 Bad Gateway');
@@ -100,7 +104,9 @@ final class Proxy
         $cacheFile = $addon->getCachePath() . 'assets/' . $cacheKey . ($extension !== '' ? '.' . $extension : '.asset');
 
         if (!is_file($cacheFile) || filemtime($cacheFile) < time() - self::CACHE_TTL) {
-            $content = @file_get_contents($url);
+            
+            // Nutze die neue Hilfsmethode
+            $content = $this->fetchUrl($url);
 
             if (false === $content) {
                 header('HTTP/1.1 502 Bad Gateway');
@@ -119,6 +125,22 @@ final class Proxy
 
         readfile($cacheFile);
         exit;
+    }
+
+    /**
+     * Zentrale Methode zum Abrufen externer URLs inkl. User-Agent
+     */
+    private function fetchUrl(string $url): string|false
+    {
+        $context = stream_context_create([
+            'http' => [
+                'method' => 'GET',
+                'user_agent' => self::USER_AGENT,
+                'timeout' => 5 // Optional: Ein Timeout verhindert, dass dein Script endlos hängt, falls OSM down ist.
+            ]
+        ]);
+
+        return @file_get_contents($url, false, $context);
     }
 
     private function buildRasterUrl(string $pattern, int $x, int $y, int $z): string
